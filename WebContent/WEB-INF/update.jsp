@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<jsp:include page="header.jsp" flush="true" />
+<%@ include file="header.jsp" %>
 
     <div class="container">
     	<div class="row">
@@ -86,4 +86,4 @@
 	 	</div>
 	</div>
 
-<jsp:include page="footer.jsp" flush="true" />
+<%@ include file="footer.jsp" %>
