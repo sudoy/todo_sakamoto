@@ -1,5 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*, javax.naming.*, javax.sql.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <jsp:include page="header.jsp" flush="true" />
 
@@ -37,40 +40,17 @@
 						<td>期限</td>
 						</tr>
 
+					<c:forEach var="todolist" items="${list}">
+					<tr class="container">
+						<td>${todolist.id}</td>
+						<td><a href="update.html?id=${todolist.id}">${todolist.title}</a></td>
+						<td>${todolist.level}</td>
+						<td>${todolist.deadline}</td>
 
-						<tr class="container">
-						<td>1</td>
-						<td><a href="update.html">テストテスト</a></td>
-						<td>★★★</td>
-						<td>2015/06/20</td>
-						</tr>
-
-
-						<tr class="container">
-						<td>2</td>
-						<td><a href="update.html">テストテスト</a></td>
-						<td>★</td>
-						<td>2015/06/22</td>
-						</tr>
-
-
-						<tr class="container">
-						<td>3</td>
-						<td><a href="update.html">テストテスト</a></td>
-						<td>★★★</td>
-						<td>2015/06/20</td>
-						</tr>
-
-
-						<tr class="container">
-						<td>4</td>
-						<td><a href="update.html">テストテスト</a></td>
-						<td>★★</td>
-						<td></td>
-						</tr>
+					</tr>
+					</c:forEach>
 
 				</table>
-
 
 			 	<div class="">
 			 		<a href="entry.html" class="btn btn-primary"><span class="" aria-hidden="true">追加</span></a>
