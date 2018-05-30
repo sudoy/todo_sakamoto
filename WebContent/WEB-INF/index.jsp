@@ -4,7 +4,9 @@
 <!DOCTYPE html>
 <html lang="ja">
 <jsp:include page="header.jsp" flush="true" />
+
 <body>
+
 
 
 	<nav class="navbar navbar-default navbar-custom">
