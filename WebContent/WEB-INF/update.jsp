@@ -5,15 +5,6 @@
 <jsp:include page="header.jsp" flush="true" />
 <body>
 
-
-	<nav class="navbar navbar-default navbar-custom">
-		<div class="container">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<a class="navbar-brand" href="index.html">Todoリスト</a>
-		</div>
-
-	</nav>
-
 	<div class="container">
 		<div class="row">
 
