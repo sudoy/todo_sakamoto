@@ -17,7 +17,6 @@
 			<a class="navbar-brand" href="index.html">Todoリスト</a>
 		</div>
 
-
 	</nav>
 
 
@@ -50,46 +49,46 @@
 
 			<form class="form-horizontal" action="#" method="post">
 
-				<table class="table">
+								<table class="table">
 
-					<tr class=" control-label">
+						<tr class="container">
 						<td>#</td>
 						<td>題名</td>
 						<td>重要度</td>
 						<td>期限</td>
-					</tr>
+						</tr>
 
 
-					<tr class="control-label">
+						<tr class="container">
 						<td>1</td>
 						<td><a href="update.html">テストテスト</a></td>
 						<td>★★★</td>
 						<td>2015/06/20</td>
-					</tr>
+						</tr>
 
 
-					<tr class=" control-label">
+						<tr class="container">
 						<td>2</td>
 						<td><a href="update.html">テストテスト</a></td>
 						<td>★</td>
 						<td>2015/06/22</td>
-					</tr>
+						</tr>
 
 
-					<tr class=" control-label">
+						<tr class="container">
 						<td>3</td>
 						<td><a href="update.html">テストテスト</a></td>
 						<td>★★★</td>
 						<td>2015/06/20</td>
-					</tr>
+						</tr>
 
 
-					<tr class="control-label">
+						<tr class="container">
 						<td>4</td>
 						<td><a href="update.html">テストテスト</a></td>
 						<td>★★</td>
 						<td></td>
-					</tr>
+						</tr>
 
 				</table>
 
@@ -102,11 +101,7 @@
 			</form>
 		</div>
 	</div>
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="js/bootstrap.min.js"></script>
+<jsp:include page="footer.jsp" flush="true" />
 </body>
 </html>
 
