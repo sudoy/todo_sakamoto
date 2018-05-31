@@ -7,10 +7,7 @@
 
 
 <jsp:include page="header.jsp" flush="true" />
-<html>
 
-
-	<body>
 		<div class="container">
 		<div class="row">
 
