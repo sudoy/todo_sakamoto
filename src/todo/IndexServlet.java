@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import todo.beans.Todo;
 import todo_utils.DBUtils;
+import todo_utils.Utils;
 
 @WebServlet("/index.html")
 public class IndexServlet extends HttpServlet {
@@ -21,6 +22,7 @@ public class IndexServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 
+		//context.xalのリソースへアクセス
 		Connection con = null;
 		PreparedStatement ps = null;
 		String sql = null;
@@ -32,6 +34,9 @@ public class IndexServlet extends HttpServlet {
 //			DataSource ds = (DataSource)envContext.lookup("jdbc/mysql");
 			con = DBUtils.getConnection();
 
+			//コネクションプールからコネクションを1つもらう。
+			//con = ds.getConnection();
+
 			sql = "select * from todolist ORDER BY id";
 
 			ps = con.prepareStatement(sql);
@@ -40,14 +45,15 @@ public class IndexServlet extends HttpServlet {
 
 			ArrayList<Todo> list = new ArrayList<>();
 
-			while(rs.next()){
+			while(rs.next()) {
 				Todo tdl = new Todo(
-							rs.getInt("id"),
-							rs.getString("title"),
-							rs.getString("level"),
-							rs.getString("deadline"));
-					list.add(tdl);
-				}
+						rs.getInt("id"),
+						rs.getString("title"),
+						rs.getString("content"),
+						rs.getString("level"),
+						Utils.date2LocalDate(rs.getDate("deadline")));
+				list.add(tdl);
+			}
 
 			req.setAttribute("list", list);
 
@@ -63,7 +69,6 @@ public class IndexServlet extends HttpServlet {
 				if(ps != null){ps.close();}
 				if(con != null){con.close();}
 			}catch(Exception e){ }
-
 		}
 	}
 

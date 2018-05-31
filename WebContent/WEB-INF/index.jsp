@@ -1,8 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <%@ page import="java.sql.*, javax.naming.*, javax.sql.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page import="todo_utils.HtmlUtils" %>
 
 <jsp:include page="header.jsp" flush="true" />
 
@@ -45,8 +46,7 @@
 						<td>${todolist.id}</td>
 						<td><a href="update.html?id=${todolist.id}">${todolist.title}</a></td>
 						<td>${todolist.level}</td>
-						<td>${todolist.deadline}</td>
-
+						<td>${HtmlUtils.formatDeadline(todolist)}</td>
 					</tr>
 					</c:forEach>
 

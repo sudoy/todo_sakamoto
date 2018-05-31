@@ -1,10 +1,13 @@
 package todo.beans;
 
+import java.time.LocalDate;
+
 public class Todo {
 	private int id;
 	private String title;
+	private String content;
 	private String level;
-	private String deadline;
+	private LocalDate deadline;
 
 	public int getId() {
 		return id;
@@ -22,6 +25,14 @@ public class Todo {
 		this.title = title;
 	}
 
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
 	public String getLevel() {
 		return level;
 	}
@@ -30,18 +41,19 @@ public class Todo {
 		this.level = level;
 	}
 
-	public String getDeadline() {
+	public LocalDate getDeadline() {
 		return deadline;
 	}
 
-	public void setDeadline(String deadline) {
+	public void setDeadline(LocalDate deadline) {
 		this.deadline = deadline;
 	}
 
-	public Todo(int id, String title, String level, String deadline) {
+	public Todo(int id, String title, String content, String level, LocalDate deadline) {
 		super();
 		this.id = id;
 		this.title = title;
+		this.content = content;
 		this.level = level;
 		this.deadline = deadline;
 	}
