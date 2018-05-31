@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import todo.beans.Todo;
-import todo_utils.DBUtils;
-import todo_utils.Utils;
+import todo_sakamoto.DBUtils;
+import todo_sakamoto.Utils;
 
 @WebServlet("/index.html")
 public class IndexServlet extends HttpServlet {
@@ -37,7 +37,7 @@ public class IndexServlet extends HttpServlet {
 			//コネクションプールからコネクションを1つもらう。
 			//con = ds.getConnection();
 
-			sql = "select * from todolist ORDER BY id";
+			sql = "select id,title,content,level,deadline from todolist ORDER BY id";
 
 			ps = con.prepareStatement(sql);
 
