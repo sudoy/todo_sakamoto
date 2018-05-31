@@ -1,4 +1,4 @@
-package todo_sakamoto;
+package todo.utils;
 
 import java.sql.Connection;
 import java.sql.SQLException;

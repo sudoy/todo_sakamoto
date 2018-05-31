@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import todo.beans.Todo;
-import todo_sakamoto.DBUtils;
-import todo_sakamoto.Utils;
+import todo.utils.DBUtils;
+import todo.utils.Utils;
 
 @WebServlet("/index.html")
 public class IndexServlet extends HttpServlet {

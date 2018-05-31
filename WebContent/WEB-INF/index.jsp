@@ -1,15 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<%@ page import="java.sql.*" %>
-<%@ page import="todo_sakamoto.HtmlUtils" %>
+<%@ page import="todo.utils.HtmlUtils" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 
 <jsp:include page="header.jsp" flush="true" />
 
 		<div class="container">
-		<div class="row">
 
 			<div class="alert alert-success" role="alert">
 				<button type="button" data-dismiss="alert" class="close" ><span aria-hidden="true">&times;</span></button>
@@ -17,7 +13,6 @@
 					<ul>
 						<li>No.27のTodoを更新しました。</li>
 					</ul>
-
 			</div>
 
 			<div class="alert alert-danger" role="alert">
@@ -52,13 +47,10 @@
 
 			</table>
 
-			<div class="">
 				<a href="entry.html" class="btn btn-primary"><span class="" aria-hidden="true">追加</span></a>
-			</div>
 
 		</form>
 
-		</div>
 		</div>
 
 <jsp:include page="footer.jsp" flush="true" />
