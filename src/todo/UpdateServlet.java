@@ -84,7 +84,6 @@ public class UpdateServlet extends HttpServlet {
 		List<String> errors = validate(id, title, deadline, level);
 		if(errors.size() > 0) {
 			req.setAttribute("errors", errors);
-			req.setAttribute("todolist", new Todo());
 
 			getServletContext().getRequestDispatcher("/WEB-INF/entry.jsp")
 				.forward(req, resp);
@@ -138,8 +137,6 @@ public class UpdateServlet extends HttpServlet {
 		if(title.length() > 100) {
 			errors.add("題名は100文字以内です。");
 		}
-
-		System.out.println(deadline);
 
 		if(!deadline.equals("")) {
 			try {

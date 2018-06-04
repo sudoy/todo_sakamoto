@@ -55,7 +55,7 @@
 				<div class="col-sm-offset-2">
 					<a href="index.html" class="btn btn-default"><span class="" aria-hidden="true">キャンセル</span></a>
 					<button type="submit" class="btn btn-primary"><span class="" aria-hidden="true">更新</span></button>
-					<a href="index.html" class="btn btn-danger pull-right"><span class="" aria-hidden="true">削除</span></a>
+					<a href="delete.html?id=${todolist.id}" class="btn btn-danger pull-right"><span class="" aria-hidden="true">削除</span></a>
 				</div>
 			</div>
 
