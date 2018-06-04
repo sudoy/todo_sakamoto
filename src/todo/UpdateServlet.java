@@ -4,6 +4,11 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.ResolverStyle;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,8 +44,6 @@ public class UpdateServlet extends HttpServlet {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, id);
 
-			System.out.println(ps);
-
 			rs = ps.executeQuery();
 
 			if(!rs.next()) {
@@ -70,9 +73,87 @@ public class UpdateServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		req.getServletContext().getRequestDispatcher("/WEB-INF/update.jsp")
+		req.setCharacterEncoding("utf-8");
+
+		String id = req.getParameter("id");
+		String title = req.getParameter("title");
+		String content = req.getParameter("content");
+		String level = req.getParameter("level");
+		String deadline = req.getParameter("deadline");
+
+		List<String> errors = validate(id, title, deadline, level);
+		if(errors.size() > 0) {
+			req.setAttribute("errors", errors);
+			req.setAttribute("todolist", new Todo());
+
+			getServletContext().getRequestDispatcher("/WEB-INF/entry.jsp")
 				.forward(req, resp);
 
+			return;
+		}
 
+
+
+		Connection con = null;
+		PreparedStatement ps = null;
+
+		try {
+			con = DBUtils.getConnection();
+
+			String sql = ""
+						+ "update todolist set"
+						+ " title = ?, content = ?, level = ?, deadline = ?"
+						+ " where id = ?";
+
+			ps = con.prepareStatement(sql);
+			ps.setString(1, title);
+			ps.setString(2, content);
+			ps.setString(3, level);
+			ps.setString(4, deadline.equals("")? null: deadline);
+			ps.setString(5, id);
+
+			ps.executeUpdate();
+
+			resp.sendRedirect("index.html");
+
+		} catch (Exception e) {
+			throw new ServletException(e);
+
+		}finally {
+				DBUtils.close(con, ps);
+		}
+	}
+
+	private List<String> validate(String id, String title, String deadline, String level) {
+		List<String> errors = new ArrayList<>();
+
+		if(id == null || id.equals("")) {
+			errors.add("不正なアクセスです。");
+		}
+
+		if(title.equals("")) {
+			errors.add("題名は必須です。");
+		}
+
+		if(title.length() > 100) {
+			errors.add("題名は100文字以内です。");
+		}
+
+		System.out.println(deadline);
+
+		if(!deadline.equals("")) {
+			try {
+				LocalDate.parse(deadline, DateTimeFormatter.ofPattern("uuuu/MM/dd")
+						.withResolverStyle(ResolverStyle.STRICT));
+			}catch(Exception e) {
+				errors.add("期限は「YYYY/MM/DD」の形式で入力してください。");
+			}
+		}
+
+		if(!level.equals("★★★") && !level.equals("★★") && !level.equals("★")) {
+			errors.add("不正なアクセスです。");
+		}
+
+		return errors;
 	}
 }

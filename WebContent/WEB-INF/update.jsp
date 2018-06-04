@@ -4,21 +4,21 @@
 
 <jsp:include page="header.jsp" flush="true" />
 
-		<form class="form-horizontal" action="update.html" method="post">
+		<form class="form-horizontal" action="update.html?id=${todolist.id}" method="post">
 
 			更新フォーム
 			<hr>
 			<div class="form-group">
 				<label for="title" class="col-sm-2 control-label">題名</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="title" placeholder="題名" value="${todolist.title}">
+					<input type="text" class="form-control" id="title" name="title" placeholder="題名" value="${param.title != null? param.title : todolist.title}">
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label for="content" class="col-sm-2 control-label">詳細 </label>
 				<div class="col-sm-10">
-					<textarea class="form-control" id="content" placeholder="詳細">${todolist.content}</textarea>
+					<textarea class="form-control" id="content" name= "content" placeholder="詳細">${todolist.content}</textarea>
 				</div>
 			</div>
 
@@ -27,17 +27,17 @@
 				<div class="col-sm-10">
 					<div class="radio">
 						<label>
-							<input type="radio"  name="level" value="★★★" ${HtmlUtils.checkLevel(param.level, "★★★") }>★★★<br>
+							<input type="radio"  name="level" value="★★★" ${HtmlUtils.checkLevel(param.level != null? param.level : todolist.level, "★★★") }>★★★<br>
 						</label>
 					</div>
 					<div class="radio">
 						<label>
-							<input type="radio"   name="level" value="★★" ${HtmlUtils.checkLevel(param.level, "★★") }>★★<br>
+							<input type="radio"   name="level" value="★★" ${HtmlUtils.checkLevel(param.level != null? param.level : todolist.level, "★★") }>★★<br>
 						</label>
 					</div>
 					<div class="radio">
 						<label>
-							<input type="radio"   name="level" value="★" ${HtmlUtils.checkLevel(param.level, "★") }>★
+							<input type="radio"   name="level" value="★" ${HtmlUtils.checkLevel(param.level != null? param.level : todolist.level, "★") }>★
 						</label>
 					</div>
 				</div><!-- col-sm-10 -->
@@ -47,7 +47,7 @@
 			<div class="form-group">
 				<label for="deadline" class="col-sm-2 control-label">期限</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="deadline" placeholder="期限" value="" >
+					<input type="text" class="form-control" name="deadline" id="deadline" placeholder="期限" value="${param.deadline != null? param.deadline : HtmlUtils.formatDeadline(todolist)}" >
 				</div>
 			</div>
 

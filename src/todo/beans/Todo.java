@@ -9,6 +9,10 @@ public class Todo {
 	private String level;
 	private LocalDate deadline;
 
+	public Todo() {
+
+	}
+
 	public int getId() {
 		return id;
 	}
