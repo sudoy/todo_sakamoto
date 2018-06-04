@@ -54,7 +54,7 @@
 			 <div class="row">
 			 	<div class="col-sm-offset-2">
 			 		<a href="index.html" class="btn btn-default"><span class="" aria-hidden="true">キャンセル</span></a>
-			 		<button type="submit" class="btn btn-primary"><span class="" aria-hidden="true">追加</span></button>
+			 		<button type="button" class="btn btn-primary"><span class="" aria-hidden="true">追加</span></button>
 			 	</div>
 			 </div>
 
