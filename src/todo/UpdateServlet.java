@@ -89,7 +89,7 @@ public class UpdateServlet extends HttpServlet {
 
 			session.setAttribute("errors", errors);
 
-			getServletContext().getRequestDispatcher("/WEB-INF/entry.jsp")
+			getServletContext().getRequestDispatcher("/WEB-INF/update.jsp")
 				.forward(req, resp);
 
 			return;

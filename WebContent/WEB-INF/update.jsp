@@ -5,7 +5,7 @@
 
 <jsp:include page="header.jsp" flush="true" />
 
-		<form class="form-horizontal" action="update.html?id=${todolist.id}" method="post">
+		<form class="form-horizontal" action="update.html?id=${param.id != null? param.id : todolist.id}" method="post">
 
 			更新フォーム
 			<hr>
@@ -19,7 +19,7 @@
 			<div class="form-group">
 				<label for="content" class="col-sm-2 control-label">詳細 </label>
 				<div class="col-sm-10">
-					<textarea class="form-control" id="content" name= "content" placeholder="詳細">${todolist.content}</textarea>
+					<textarea class="form-control" id="content" name= "content" placeholder="詳細">${param.content != null? param.title : todolist.content}</textarea>
 				</div>
 			</div>
 
