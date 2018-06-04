@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import todo.beans.Todo;
 import todo.utils.DBUtils;
@@ -75,6 +76,8 @@ public class UpdateServlet extends HttpServlet {
 			throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");
 
+		HttpSession session = req.getSession();
+
 		String id = req.getParameter("id");
 		String title = req.getParameter("title");
 		String content = req.getParameter("content");
@@ -83,7 +86,8 @@ public class UpdateServlet extends HttpServlet {
 
 		List<String> errors = validate(id, title, deadline, level);
 		if(errors.size() > 0) {
-			req.setAttribute("errors", errors);
+
+			session.setAttribute("errors", errors);
 
 			getServletContext().getRequestDispatcher("/WEB-INF/entry.jsp")
 				.forward(req, resp);
@@ -112,6 +116,10 @@ public class UpdateServlet extends HttpServlet {
 			ps.setString(5, id);
 
 			ps.executeUpdate();
+
+			List<String> successes = new ArrayList<>();
+			successes.add("更新しました。");
+			session.setAttribute("successes", successes);
 
 			resp.sendRedirect("index.html");
 
