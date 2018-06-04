@@ -1,6 +1,8 @@
 package todo.utils;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.naming.Context;
@@ -20,9 +22,47 @@ public class DBUtils {
 		return ds.getConnection();
 	}
 
-	public static void close(Connection con) throws SQLException {
+	public static void close(Connection con, PreparedStatement ps, ResultSet rs){
 		if(con != null){
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		if(ps != null) {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		if(rs != null) {
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public static void close(Connection con, PreparedStatement ps) {
+		if(con != null){
+			try{
+				con.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		if(ps != null) {
+			try{
+				ps.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }

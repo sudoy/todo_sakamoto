@@ -3,27 +3,6 @@
 
 <jsp:include page="header.jsp" flush="true" />
 
-<div class="container">
-	<div class="row">
-
-		<div class="alert alert-success" role="alert">
-			<button type="button" data-dismiss="alert" class="close" ><span aria-hidden="true">&times;</span></button>
-			<h4 class="alert-heading">完了しました!</h4>
-			<ul>
-				<li>No.27のTodoを更新しました。</li>
-			</ul>
-		</div>
-
-		<div class="alert alert-danger" role="alert">
-			<button type="button" data-dismiss="alert" class="close" ><span aria-hidden="true">&times;</span></button>
-			<h4 class="alert-heading">エラーが発生しました！</h4>
-	    	<ul>
-	    		<li>題名は必須入力です。</li>
-	    		<li>題名は100文字以内にしてください。</li>
-	    		<li>期限は「YYYY/MM/DD」形式で入力してください。</li>
-	    	</ul>
-		</div>
-
 		<form class="form-horizontal" action="#" method="post">
 
 			更新フォーム
@@ -80,8 +59,5 @@
 			</div>
 
 		</form>
-
-	 </div><!-- row -->
-</div><!-- container -->
 
 <jsp:include page="footer.jsp" flush="true" />

@@ -1,44 +1,25 @@
 <%@ page contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="todo.utils.HtmlUtils" %>
 
 <jsp:include page="header.jsp" flush="true" />
 
-<div class="container">
-    <div class="row">
-
-		<div class="alert alert-success" role="alert">
-			<button type="button" data-dismiss="alert" class="close" ><span aria-hidden="true">&times;</span></button>
-			<h4 class="alert-heading">完了しました!</h4>
-		    <ul>
-		    	<li>No.27のTodoを更新しました。</li>
-		    </ul>
-		</div>
-
-		<div class="alert alert-danger" role="alert">
-			<button type="button" data-dismiss="alert" class="close" ><span aria-hidden="true">&times;</span></button>
-			<h4 class="alert-heading">エラーが発生しました！</h4>
-			<ul>
-				<li>題名は必須入力です。</li>
-				<li>題名は100文字以内にしてください。</li>
-				<li>期限は「YYYY/MM/DD」形式で入力してください。</li>
-			</ul>
-		</div>
-
-		<form class="form-horizontal" action="#" method="post">
+		<form class="form-horizontal" action="entry.html" method="post">
 
 			登録フォーム
 			<hr>
 			<div class="form-group">
 				<label for="title" class="col-sm-2 control-label">題名</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="title" value="" placeholder="題名">
+					<input type="text" class="form-control" name="title" id="title" placeholder="題名" value="${param.title}">
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label for="content" class="col-sm-2 control-label">詳細 </label>
 				<div class="col-sm-10">
-					<textarea class="form-control" id="content" placeholder="詳細"></textarea>
+					<textarea class="form-control" name="content" id="content" placeholder="詳細">${param.content}</textarea>
 				</div>
 			</div>
 
@@ -47,17 +28,17 @@
 				<div class="col-sm-10">
 					<div class="radio">
 						<label>
-							<input type="radio"  name="level" value="3" checked>★★★<br>
+							<input type="radio"  name="level" id="level3" value="★★★" ${HtmlUtils.checkLevel(param.level, "★★★") }>★★★<br>
 						</label>
 					</div>
 					<div class="radio">
 						<label>
-							<input type="radio"   name="level" value="2">★★<br>
+							<input type="radio"   name="level" id="level2" value="★★" ${HtmlUtils.checkLevel(param.level, "★★") }>★★<br>
 						</label>
 					</div>
 					<div class="radio">
 						<label>
-							<input type="radio"   name="level" value="1">★
+							<input type="radio"   name="level" id="level1" value="★" ${HtmlUtils.checkLevel(param.level, "★") }>★
 						</label>
 					</div>
 				</div>
@@ -66,20 +47,17 @@
 			<div class="form-group">
 				<label for="deadline" class="col-sm-2 control-label">期限</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="deadline" value="" placeholder="期限">
+					<input type="text" class="form-control" name="deadline" id="deadline" placeholder="期限" value="${param.deadline}">
 				</div>
 			</div>
 
 			 <div class="row">
 			 	<div class="col-sm-offset-2">
 			 		<a href="index.html" class="btn btn-default"><span class="" aria-hidden="true">キャンセル</span></a>
-			 		<a href="index.html" class="btn btn-primary"><span class="" aria-hidden="true">追加</span></a>
+			 		<button type="submit" class="btn btn-primary"><span class="" aria-hidden="true">追加</span></button>
 			 	</div>
 			 </div>
 
 		</form>
-
-	</div><!-- row -->
-</div><!-- container -->
 
 <jsp:include page="footer.jsp" flush="true" />

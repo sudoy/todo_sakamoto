@@ -65,9 +65,15 @@ public class IndexServlet extends HttpServlet {
 			throw new ServletException(e);
 		}finally{
 			try{
-				if(rs != null){rs.close();}
-				if(ps != null){ps.close();}
-				if(con != null){con.close();}
+				if(rs != null){
+					rs.close();
+					}
+				if(ps != null){
+					ps.close();
+					}
+				if(con != null){
+					con.close();
+					}
 			}catch(Exception e){ }
 		}
 	}
