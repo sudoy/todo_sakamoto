@@ -20,7 +20,7 @@
 				<tr class="container">
 					<td>${todolist.id}</td>
 					<td><a href="update.html?id=${todolist.id}">${todolist.title}</a></td>
-					<td>${todolist.level}<td>
+					<td>${todolist.level}</td>
 					<td>${HtmlUtils.formatDeadline(todolist)}</td>
 				</tr>
 			</c:forEach>
