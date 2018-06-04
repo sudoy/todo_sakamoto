@@ -1,23 +1,24 @@
 <%@ page contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="todo.utils.HtmlUtils" %>
 
 <jsp:include page="header.jsp" flush="true" />
 
-		<form class="form-horizontal" action="#" method="post">
+		<form class="form-horizontal" action="update.html" method="post">
 
 			更新フォーム
 			<hr>
 			<div class="form-group">
 				<label for="title" class="col-sm-2 control-label">題名</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="title" value="テストテスト" placeholder="題名">
+					<input type="text" class="form-control" id="title" placeholder="題名" value="${todolist.title}">
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label for="content" class="col-sm-2 control-label">詳細 </label>
 				<div class="col-sm-10">
-					<textarea class="form-control" id="content" placeholder="詳細">SQLの確認テストの採点と報告書を作成する。</textarea>
+					<textarea class="form-control" id="content" placeholder="詳細">${todolist.content}</textarea>
 				</div>
 			</div>
 
@@ -26,17 +27,17 @@
 				<div class="col-sm-10">
 					<div class="radio">
 						<label>
-							<input type="radio"  name="level" value="3" checked>★★★<br>
+							<input type="radio"  name="level" value="★★★" ${HtmlUtils.checkLevel(param.level, "★★★") }>★★★<br>
 						</label>
 					</div>
 					<div class="radio">
 						<label>
-							<input type="radio"   name="level" value="2">★★<br>
+							<input type="radio"   name="level" value="★★" ${HtmlUtils.checkLevel(param.level, "★★") }>★★<br>
 						</label>
 					</div>
 					<div class="radio">
 						<label>
-							<input type="radio"   name="level" value="1">★
+							<input type="radio"   name="level" value="★" ${HtmlUtils.checkLevel(param.level, "★") }>★
 						</label>
 					</div>
 				</div><!-- col-sm-10 -->
@@ -46,14 +47,14 @@
 			<div class="form-group">
 				<label for="deadline" class="col-sm-2 control-label">期限</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="deadline" value="2015/06/15" placeholder="期限">
+					<input type="text" class="form-control" id="deadline" placeholder="期限" value="" >
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-sm-offset-2">
 					<a href="index.html" class="btn btn-default"><span class="" aria-hidden="true">キャンセル</span></a>
-					<a href="index.html" class="btn btn-primary"><span class="" aria-hidden="true">更新</span></a>
+					<button type="submit" class="btn btn-primary"><span class="" aria-hidden="true">更新</span></button>
 					<a href="index.html" class="btn btn-danger pull-right"><span class="" aria-hidden="true">削除</span></a>
 				</div>
 			</div>
