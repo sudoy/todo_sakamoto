@@ -75,6 +75,7 @@ public class UpdateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 
+		req.setCharacterEncoding("utf-8");
 		HttpSession session = req.getSession();
 
 		String id = req.getParameter("id");
@@ -93,7 +94,6 @@ public class UpdateServlet extends HttpServlet {
 
 			return;
 		}
-
 
 
 		Connection con = null;
@@ -132,6 +132,8 @@ public class UpdateServlet extends HttpServlet {
 
 	private List<String> validate(String id, String title, String deadline, String level) {
 		List<String> errors = new ArrayList<>();
+
+
 
 		if(id == null || id.equals("")) {
 			errors.add("不正なアクセスです。");
