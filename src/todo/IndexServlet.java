@@ -43,7 +43,7 @@ public class IndexServlet extends HttpServlet {
 			//コネクションプールからコネクションを1つもらう。
 			//con = ds.getConnection();
 
-			sql = "select id,title,content,level,deadline from todolist ORDER BY id";
+			sql = "select id,title,content,level,deadline form todolist ORDER BY id";
 
 			ps = con.prepareStatement(sql);
 
