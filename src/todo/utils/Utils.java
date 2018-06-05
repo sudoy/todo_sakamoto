@@ -12,9 +12,6 @@ import javax.servlet.http.HttpSession;
 
 public class Utils {
 	public static LocalDate date2LocalDate(final Date date) {
-		if(date == null) {
-			return null;
-		}
 		return date.toLocalDate();
 	}
 
@@ -27,14 +24,18 @@ public class Utils {
 		if(session.getAttribute("user") == null) {
 
 			List<String> errors = new ArrayList<>();
+
 			errors.add("ログインしてください。");
 			session.setAttribute("errors", errors);
+
 			resp.sendRedirect("login.html");
 
 			return false;
 
 		}else {
+
 			return true;
+
 		}
 
 	}

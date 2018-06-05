@@ -83,8 +83,16 @@ public class EntryServlet extends HttpServlet {
 			successes.add("登録しました。");
 			session.setAttribute("successes", successes);
 
-
 			resp.sendRedirect("index.html");
+
+//			List<String> successes = new ArrayList<>();
+//			successes.add("登録");
+//
+//			req.setAttribute("successes", successes);
+//
+//			resp.sendRedirect("index.html");
+//			getServletContext().getRequestDispatcher("/WEB-INF/index.jsp")
+//				.forward(req, resp); URLがごちゃごちゃになるので使わない
 
 		} catch (Exception e) {
 			throw new ServletException(e);
