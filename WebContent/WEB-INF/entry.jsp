@@ -23,7 +23,7 @@
 			<div class="form-group">
 				<label for="content" class="col-sm-2 control-label">詳細 </label>
 				<div class="col-sm-10">
-					<textarea class="form-control" name="content" id="content" placeholder="詳細">${param.content}</textarea>
+					<textarea class="form-control" name="Content" id="content" placeholder="詳細">${param.content}</textarea>
 				</div>
 			</div>
 
