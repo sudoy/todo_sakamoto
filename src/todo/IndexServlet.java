@@ -46,7 +46,6 @@ public class IndexServlet extends HttpServlet {
 			sql = "select id,title,content,level,deadline from todolist ORDER BY id";
 
 			ps = con.prepareStatement(sql);
-			System.out.println(ps);
 
 			rs = ps.executeQuery();
 

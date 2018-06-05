@@ -57,7 +57,9 @@ public class LoginServlet extends HttpServlet {
 						+" from users"
 						+" where email = ? and password = MD5(?)";
 
+
 			ps = con.prepareStatement(sql);
+
 			ps.setString(1, email);
 			ps.setString(2, password);
 

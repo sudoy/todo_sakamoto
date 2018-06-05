@@ -27,14 +27,18 @@ public class Utils {
 		if(session.getAttribute("user") == null) {
 
 			List<String> errors = new ArrayList<>();
+
 			errors.add("ログインしてください。");
 			session.setAttribute("errors", errors);
+
 			resp.sendRedirect("login.html");
 
 			return false;
 
 		}else {
+
 			return true;
+
 		}
 
 	}
