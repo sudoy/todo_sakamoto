@@ -51,7 +51,7 @@
 			<div class="form-group">
 				<label for="deadline" class="col-sm-2 control-label">期限</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="deadline" id="deadline" placeholder="期限" value="${param.deadline}">
+					<input type="text" class="form-control" name="deadLine" id="deadline" placeholder="期限" value="${param.deadline}">
 				</div>
 			</div>
 
