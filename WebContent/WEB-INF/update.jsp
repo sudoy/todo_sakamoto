@@ -5,6 +5,9 @@
 
 <jsp:include page="header.jsp" flush="true" />
 
+<jsp:include page="include/success.jsp"/>
+<jsp:include page="include/errors.jsp"/>
+
 		<form class="form-horizontal" action="update.html?id=${param.id != null? param.id : todolist.id}" method="post">
 
 			更新フォーム

@@ -5,6 +5,10 @@
 
 <jsp:include page="header.jsp" flush="true" />
 
+<jsp:include page="include/success.jsp" />
+<jsp:include page="include/errors.jsp" />
+
+
 		<form class="form-horizontal" action="entry.html" method="post">
 
 			登録フォーム

@@ -5,6 +5,10 @@
 
 <jsp:include page="header.jsp" flush="true" />
 
+<jsp:include page="include/success.jsp"/>
+<jsp:include page="include/errors.jsp"/>
+
+
 		<form class="form-horizontal" action="#" method="post">
 
 			<table class="table">

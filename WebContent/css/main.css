@@ -7,3 +7,25 @@
 body {
     background: #9e9e9e17;
 }
+
+@media ( min-width: 768px ) {
+		#banner {
+			min-height: 300px;
+			border-bottom: none;
+		}
+	}
+	.bs-component {
+		position: relative;
+	}
+	.bs-component .modal {
+		position: relative;
+		top: auto;
+		right: auto;
+		left: auto;
+		bottom: auto;
+		z-index: 1;
+		display: block;
+	}
+	.bs-component .modal-dialog {
+		width: 60%;
+	}

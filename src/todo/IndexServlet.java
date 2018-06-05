@@ -22,6 +22,12 @@ public class IndexServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 
+
+		//ログインチェック
+		if(!Utils.checkLogin(req, resp)) {
+			return;
+		}
+
 		//context.xalのリソースへアクセス
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -77,11 +83,11 @@ public class IndexServlet extends HttpServlet {
 			}catch(Exception e){ }
 		}
 	}
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		req.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp")
-				.forward(req, resp);
-	}
+//
+//	@Override
+//	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+//			throws ServletException, IOException {
+//		req.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp")
+//				.forward(req, resp);
+//	}
 }
