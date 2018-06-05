@@ -30,7 +30,7 @@ public class EntryServlet extends HttpServlet {
 			return;
 		}
 
-		req.getServletContext().getRequestDispatcher("entry.jsp")
+		req.getServletContext().getRequestDispatcher("/WEB-INF/entry.jsp")
 				.forward(req, resp);
 	}
 
@@ -55,7 +55,7 @@ public class EntryServlet extends HttpServlet {
 
 			session.setAttribute("errors", errors);
 
-			getServletContext().getRequestDispatcher("entry.jsp")
+			getServletContext().getRequestDispatcher("WEB-INF/entry.jsp")
 				.forward(req, resp);
 
 			return;
