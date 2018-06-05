@@ -55,7 +55,7 @@ public class EntryServlet extends HttpServlet {
 
 			session.setAttribute("errors", errors);
 
-			getServletContext().getRequestDispatcher("WEB-INF/entry.jsp")
+			getServletContext().getRequestDispatcher("/WEB-INF/entry.jsp")
 				.forward(req, resp);
 
 			return;

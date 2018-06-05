@@ -93,7 +93,9 @@ public class UpdateServlet extends HttpServlet {
 		String deadline = req.getParameter("deadline");
 
 		List<String> errors = validate(id, title, deadline, level);
-		if(errors.size() >= 0) {
+//		System.out.println(errors);
+
+		if(errors.size() > 0) {
 
 			session.setAttribute("errors", errors);
 
@@ -102,7 +104,6 @@ public class UpdateServlet extends HttpServlet {
 
 			return;
 		}
-
 
 		Connection con = null;
 		PreparedStatement ps = null;
