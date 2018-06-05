@@ -93,7 +93,7 @@ public class UpdateServlet extends HttpServlet {
 		String deadline = req.getParameter("deadline");
 
 		List<String> errors = validate(id, title, deadline, level);
-		if(errors.size() > 0) {
+		if(errors.size() >= 0) {
 
 			session.setAttribute("errors", errors);
 
