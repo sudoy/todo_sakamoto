@@ -14,9 +14,5 @@
 		</ul>
 	</div>
 
-	<%
-	session.setAttribute("successes", null);
-	%>
-
 </c:if>
 
