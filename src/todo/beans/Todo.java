@@ -33,6 +33,10 @@ public class Todo {
 		this.content = content;
 	}
 
+	public String getContent() {
+		return content;
+	}
+
 	public String getLevel() {
 		return level;
 	}
