@@ -58,7 +58,6 @@ public class IndexServlet extends HttpServlet {
 						rs.getString("content"),
 						rs.getString("level"),
 						Utils.date2LocalDate(rs.getDate("deadline")));
-				list.add(tdl);
 			}
 
 
