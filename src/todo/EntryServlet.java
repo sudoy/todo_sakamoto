@@ -75,7 +75,7 @@ public class EntryServlet extends HttpServlet {
 			ps.setString(1, title);
 			ps.setString(2, content);
 			ps.setString(3, level);
-			ps.setString(4, deadline);
+			ps.setString(4, deadline.equals("")? null : deadline);
 
 			ps.executeUpdate();
 
@@ -104,8 +104,6 @@ public class EntryServlet extends HttpServlet {
 
 	private List<String> validate(String title, String deadline, String level) {
 		List<String> errors = new ArrayList<>();
-
-		System.out.println(title);
 
 		if(title.equals("")) {
 			errors.add("題名は必須です。");
