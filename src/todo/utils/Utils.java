@@ -12,7 +12,10 @@ import javax.servlet.http.HttpSession;
 
 public class Utils {
 	public static LocalDate date2LocalDate(final Date date) {
-		return date.toLocalDate();
+		if(date != null) {
+			return date.toLocalDate();
+		}
+		return null;
 	}
 
 

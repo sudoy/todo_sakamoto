@@ -75,7 +75,7 @@ public class EntryServlet extends HttpServlet {
 			ps.setString(1, title);
 			ps.setString(2, content);
 			ps.setString(3, level);
-			ps.setString(4, deadline.equals("")? null: deadline);
+			ps.setString(4, deadline);
 
 			ps.executeUpdate();
 
