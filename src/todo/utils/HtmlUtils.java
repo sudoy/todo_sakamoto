@@ -23,7 +23,10 @@ public class HtmlUtils {
 	}
 
 	public static String checkLevel(String param, String value) {
-		if(param.equals(value)) {
+
+		if(value.equals("★★★")) {
+			return "checked";
+		}else if(param.equals(value)) {
 			return "checked";
 		}else {
 			return " ";
