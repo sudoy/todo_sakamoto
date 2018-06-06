@@ -61,6 +61,7 @@ public class IndexServlet extends HttpServlet {
 				list.add(tdl);
 			}
 
+
 			req.setAttribute("list", list);
 
 			getServletContext().getRequestDispatcher("/WEB-INF/index.jsp")
