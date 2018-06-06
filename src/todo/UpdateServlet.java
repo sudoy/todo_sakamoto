@@ -112,8 +112,8 @@ public class UpdateServlet extends HttpServlet {
 			con = DBUtils.getConnection();
 
 			String sql = ""
-						+ "update todolist set"
-						+ "content = ?, title = ?, level = ?, deadline = ? "
+						+ "update todolist set "
+						+ "title = ?, content = ?, level = ?, deadline = ? "
 						+ "where id = ?";
 
 			ps = con.prepareStatement(sql);
