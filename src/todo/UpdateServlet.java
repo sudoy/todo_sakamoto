@@ -113,8 +113,8 @@ public class UpdateServlet extends HttpServlet {
 
 			String sql = ""
 						+ "update todolist set"
-						+ " title = ?, content = ?, level = ?, deadline = ?"
-						+ " where id = ?";
+						+ "content = ?, title = ?, level = ?, deadline = ? "
+						+ "where id = ?";
 
 			ps = con.prepareStatement(sql);
 			ps.setString(1, title);
